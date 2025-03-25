@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford - Inicio de Sesión</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Bienvenido a Ford</h2>
+        <form id="loginForm" onsubmit="return validarFormulario(event)">
+            <label for="usuario">Nombre de usuario:</label>
+            <input type="text" id="usuario" name="usuario" required><br>
+
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required><br>
+
+            <label for="celular">Celular:</label>
+            <input type="tel" id="celular" name="celular" required><br>
+
+            <button type="submit">Iniciar sesión</button>
+        </form>
+    </div>
+
+    <script>
+        function validarFormulario(event) {
+            event.preventDefault();  // Previene que el formulario se envíe (redirección)
+            
+            var usuario = document.getElementById("usuario").value;
+            var contrasena = document.getElementById("contrasena").value;
+            var celular = document.getElementById("celular").value;
+
+            // Validar que los campos no estén vacíos
+            if (usuario === "" || contrasena === "" || celular === "") {
+                alert("Por favor, complete todos los campos.");
+                return false;
+            }
+
+            // Validación de usuario y contraseña (simulada en este caso)
+            if (usuario === "forduser" && contrasena === "ford123") {
+                // Redirigir a la primera página al iniciar sesión correctamente
+                window.location.href = "p1.html";  // Ruta relativa si todo está en la misma carpeta
+            } else {
+                alert("Credenciales incorrectas.");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
